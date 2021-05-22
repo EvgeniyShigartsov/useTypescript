@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { Card, CardVariant } from './components/Card'
+import { EventExample } from './components/EventsExample'
 import { List } from './components/List'
 import { Todo } from './components/Todo'
 import { User } from './components/User'
@@ -32,23 +33,8 @@ const App: FC = () => {
     fetchTodos()
   }, [])
 
-  console.log(todos)
   return (
     <div className="app">
-      <h1>Hello world</h1>
-      <Card variant={CardVariant.outlined} width="200px" height="200px" backgroundColor="tomato" onClick={(num) => num}>
-        <button type="button">Some button</button>
-        <div>Some div</div>
-      </Card>
-      <List
-        items={users}
-        renderItem={(user: IUser) => <User user={user} key={user.id} />}
-      />
-      <br />
-      <List
-        items={todos}
-        renderItem={(todo: ITodo) => <Todo key={todo.id} todo={todo} />}
-      />
       <div style={{ height: '50vh' }} />
     </div>
   )
