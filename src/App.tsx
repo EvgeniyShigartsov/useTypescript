@@ -1,43 +1,38 @@
-import axios from 'axios'
-import React, { FC, useEffect, useState } from 'react'
-import { Card, CardVariant } from './components/Card'
-import { EventExample } from './components/EventsExample'
-import { List } from './components/List'
-import { Todo } from './components/Todo'
-import { User } from './components/User'
-import { ITodo, IUser } from './types/types'
+import React, { FC } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { UsersPage } from './components/pages/UsersPage'
+import { TodosPage } from './components/pages/TodosPage'
+import { EventsPage } from './components/pages/EventsPage'
+import { CardsPage } from './components/pages/CardsPage'
+import { Navigation } from './components/Navigation'
+import { UserPage } from './components/pages/UserPage'
 
-const App: FC = () => {
-  const [users, setUsers] = useState<IUser[]>([])
-  const [todos, setTodos] = useState<ITodo[]>([])
+const App: FC = () => (
+  <div className="app">
+    <Navigation />
+    <Switch>
+      <Route path="/users" exact>
+        <UsersPage />
+      </Route>
 
-  async function fetchUsers() {
-    try {
-      const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
-      setUsers(response.data)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+      <Route path="/todos" exact>
+        <TodosPage />
+      </Route>
 
-  async function fetchTodos() {
-    try {
-      const response = await axios.get<ITodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      setTodos(response.data)
-    } catch (e) {
-      console.log(e)
-    }
-  }
-  useEffect(() => {
-    fetchUsers()
-    fetchTodos()
-  }, [])
+      <Route path="/events" exact>
+        <EventsPage />
+      </Route>
 
-  return (
-    <div className="app">
-      <div style={{ height: '50vh' }} />
-    </div>
-  )
-}
+      <Route path="/cards" exact>
+        <CardsPage />
+      </Route>
+
+      <Route path="/users/:id">
+        <UserPage />
+      </Route>
+    </Switch>
+    <div style={{ height: '50vh' }} />
+  </div>
+)
 
 export default App

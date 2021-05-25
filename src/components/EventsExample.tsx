@@ -12,7 +12,7 @@ export const EventExample: FC = () => {
     console.log(inputRef.current?.value)
   }
 
-  const dragHandler = (e: React.DragEvent<HTMLDivElement>) => null
+  const dragHandler = (e: React.DragEvent<HTMLDivElement>) => e
 
   const dragWithPreventHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()

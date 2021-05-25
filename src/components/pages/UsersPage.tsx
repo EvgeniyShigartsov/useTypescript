@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { FC, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { IUser } from '../../types/types'
 import { List } from '../List'
 import { User } from '../User'
@@ -23,7 +24,12 @@ export const UsersPage: FC = () => {
   return (
     <List
       items={users}
-      renderItem={(user: IUser) => <User user={user} key={user.id} />}
+      renderItem={(user: IUser) => (
+        <User
+          user={user}
+          key={user.id}
+        />
+      )}
     />
   )
 }
