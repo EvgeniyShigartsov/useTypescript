@@ -2,8 +2,8 @@ import axios from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { IUser } from '../../types/types'
-import { List } from '../List'
-import { User } from '../User'
+import { List } from '../List/List'
+import { User } from '../User/User'
 
 export const UsersPage: FC = () => {
   const [users, setUsers] = useState<IUser[]>([])

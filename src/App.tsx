@@ -1,16 +1,21 @@
 import React, { FC } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { UsersPage } from './components/pages/UsersPage'
-import { TodosPage } from './components/pages/TodosPage'
-import { EventsPage } from './components/pages/EventsPage'
-import { CardsPage } from './components/pages/CardsPage'
-import { Navigation } from './components/Navigation'
-import { UserPage } from './components/pages/UserPage'
+import { UsersPage } from './components/Pages/UsersPage'
+import { TodosPage } from './components/Pages/TodosPage'
+import { EventsPage } from './components/Pages/EventsPage'
+import { CardsPage } from './components/Pages/CardsPage'
+import { Navigation } from './components/Navigation/Navigation'
+import { UserPage } from './components/Pages/UserPage'
+import { Homepage } from './components/Homepage/Homepage'
 
 const App: FC = () => (
   <div className="app">
     <Navigation />
     <Switch>
+      <Route path="/" exact>
+        <Homepage />
+      </Route>
+
       <Route path="/users" exact>
         <UsersPage />
       </Route>

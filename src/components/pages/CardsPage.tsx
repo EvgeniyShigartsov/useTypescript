@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Card, CardVariant } from '../Card'
+import { Card, CardVariant } from '../Card/Card'
 
 export const CardsPage: FC = () => (
   <Card
