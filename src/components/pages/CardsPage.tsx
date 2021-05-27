@@ -7,7 +7,7 @@ export const CardsPage: FC = () => (
     width="200px"
     height="200px"
     backgroundColor="tomato"
-    onClick={(num) => num}
+    onClick={(num: number) => console.log(num)}
   >
     <button type="button">Some button</button>
     <div>Some div</div>

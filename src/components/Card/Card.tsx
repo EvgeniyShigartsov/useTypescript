@@ -16,10 +16,10 @@ interface CardProps {
 export const Card: FC<CardProps> = ({
   width, height, backgroundColor, children, variant, onClick,
 }) => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState<number>(0)
   const handler = () => {
     onClick(counter)
-    setCounter((prev) => prev + 1)
+    setCounter((prev: number) => prev + 1)
   }
   const styles = {
     width,
