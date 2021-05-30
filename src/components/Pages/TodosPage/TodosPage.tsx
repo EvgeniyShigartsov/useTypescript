@@ -4,15 +4,21 @@ import { useActions } from '../../../hooks/useActions'
 import { useTypedSelector } from '../../../hooks/useTypeSelector'
 import { List } from '../../List/List'
 import { Todo } from './Todo/Todo'
+import {
+  todosSelector,
+  todosIsLoadingSelector,
+  todosErrorSelector,
+  todosLimitSelector,
+  todosPageSelector,
+} from '../../../store/todos/selectors'
 
 export const TodosPage: FC = () => {
-  const {
-    todos,
-    loading,
-    error,
-    page,
-    limit,
-  } = useTypedSelector((state) => state.todos)
+  const todos = useTypedSelector(todosSelector)
+  const isLoading = useTypedSelector(todosIsLoadingSelector)
+  const error = useTypedSelector(todosErrorSelector)
+  const limit = useTypedSelector(todosLimitSelector)
+  const page = useTypedSelector(todosPageSelector)
+
   const { fetchTodos, setTodoPage } = useActions()
 
   const pages = [1, 2, 3, 4, 5]
@@ -20,7 +26,7 @@ export const TodosPage: FC = () => {
   useEffect(() => {
     fetchTodos(page, limit)
   }, [page])
-  if (loading) return <h1>Todos loading...</h1>
+  if (isLoading) return <h1>Todos isLoading...</h1>
   if (error) return <h1>{error}</h1>
 
   return (

@@ -4,16 +4,19 @@ import { useTypedSelector } from '../../../hooks/useTypeSelector'
 import { IUser } from '../../../globalTypes/globalTypes'
 import { List } from '../../List/List'
 import { User } from '../UserPage/User/User'
+import { usersErrorSelector, usersIsLoadingSelector, usersSelector } from '../../../store/users/selectors'
 
 export const UsersPage: FC = () => {
   const { fetchUsers } = useActions()
-  const { users, loading, error } = useTypedSelector((state) => state.users)
+  const users = useTypedSelector(usersSelector)
+  const isLoading = useTypedSelector(usersIsLoadingSelector)
+  const error = useTypedSelector(usersErrorSelector)
 
   useEffect(() => {
     fetchUsers()
   }, [])
 
-  if (loading) return <h1>Loading...</h1>
+  if (isLoading) return <h1>Loading...</h1>
   if (error) return <h1>{error}</h1>
   return (
     <>
