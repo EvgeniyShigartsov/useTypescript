@@ -6,7 +6,7 @@ const initialState: IUserState = {
   error: null,
 }
 
-export const MODULE_NAME = 'user'
+export const MODULE_NAME = 'users'
 
 export const userReducer = (state = initialState, action: UserAction): IUserState => {
   switch (action.type) {

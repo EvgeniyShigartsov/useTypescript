@@ -3,6 +3,7 @@ export interface IUserState {
   loading: boolean
   error: null | string
 }
+
 export enum UserActionTypes {
   FETCH_USERS = 'FETCH_USERS',
   FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
