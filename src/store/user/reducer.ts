@@ -1,38 +1,24 @@
-const FETCH_USERS = 'FETCH_USERS'
-const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
-const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
-
-interface IUserState {
-  users: any[];
-  loading: boolean;
-  error: null | string
-}
-
-interface IUserAction {
-  type: string
-  payload?: any
-}
+import { IUserState, UserAction, UserActionTypes } from './types'
 
 const initialState: IUserState = {
   users: [],
   loading: false,
   error: null,
 }
-
-export const userReducer = (state = initialState, action: IUserAction): IUserState => {
+export const userReducer = (state = initialState, action: UserAction): IUserState => {
   switch (action.type) {
-    case FETCH_USERS:
+    case UserActionTypes.FETCH_USERS:
       return {
         ...state,
         loading: true,
       }
-    case FETCH_USERS_SUCCESS:
+    case UserActionTypes.FETCH_USERS_SUCCESS:
       return {
         ...state,
         users: action.payload,
         loading: false,
       }
-    case FETCH_USERS_ERROR:
+    case UserActionTypes.FETCH_USERS_ERROR:
       return {
         ...state,
         error: action.payload,
@@ -42,5 +28,3 @@ export const userReducer = (state = initialState, action: IUserAction): IUserSta
       return state
   }
 }
-
-export {}
