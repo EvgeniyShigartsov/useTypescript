@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { FC, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { IUser } from '../../../types/types'
+import { IUser } from '../../../globalTypes/globalTypes'
 import { User } from './User/User'
 
 interface IUserPageParams {

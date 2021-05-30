@@ -1,5 +1,7 @@
+import { IUser } from '../../globalTypes/globalTypes'
+
 export interface IUserState {
-  users: any[]
+  users: IUser[]
   loading: boolean
   error: null | string
 }
@@ -15,7 +17,7 @@ interface IFetchUsersAction {
 }
 interface IFetchUsersSuccesAction {
   type: UserActionTypes.FETCH_USERS_SUCCESS
-  payload: any[]
+  payload: IUser[]
 }
 interface IFetchUsersErrorAction {
   type: UserActionTypes.FETCH_USERS_ERROR
