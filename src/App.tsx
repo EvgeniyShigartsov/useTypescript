@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { UsersPage } from './components/Pages/UsersPage'
-import { TodosPage } from './components/Pages/TodosPage'
-import { EventsPage } from './components/Pages/EventsPage'
-import { CardsPage } from './components/Pages/CardsPage'
+import { UsersPage } from './components/Pages/UsersPage/UsersPage'
+import { TodosPage } from './components/Pages/TodosPage/TodosPage'
+import { EventsPage } from './components/Pages/EventsPage/EventsPage'
+import { CardsPage } from './components/Pages/CardsPage/CardsPage'
 import { Navigation } from './components/Navigation/Navigation'
-import { UserPage } from './components/Pages/UserPage'
+import { UserPage } from './components/Pages/UserPage/UserPage'
 import { Homepage } from './components/Homepage/Homepage'
 
 const App: FC = () => (

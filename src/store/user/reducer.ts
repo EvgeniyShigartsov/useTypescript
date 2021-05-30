@@ -5,6 +5,9 @@ const initialState: IUserState = {
   loading: false,
   error: null,
 }
+
+export const MODULE_NAME = 'user'
+
 export const userReducer = (state = initialState, action: UserAction): IUserState => {
   switch (action.type) {
     case UserActionTypes.FETCH_USERS:

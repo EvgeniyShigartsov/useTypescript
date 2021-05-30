@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { useHistory } from 'react-router-dom'
-import { IUser } from '../../types/types'
+import { IUser } from '../../../../types/types'
 
 interface UserProps {
   user: IUser
