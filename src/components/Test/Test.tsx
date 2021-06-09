@@ -1,21 +1,31 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable react/no-this-in-sfc */
 import React, { FC } from 'react'
 
 export const Test: FC = () => {
-  const contact: [string, number] = ['String', 123]
+  class Animal {
+    protected voice: string
 
-  enum Status {
-    pending, // 0
-    accepted, // 1
-    rejected // 2
+    public color = 'tomato'
+
+    constructor(voice: string, color: string) {
+      this.voice = voice
+      this.color = color
+    }
+
+    private go() {
+      console.log(this.voice)
+    }
   }
+  const test = new Animal('some', 'som')
+  console.log(test)
 
-  const request = Status.pending
-  console.log(request) // 0
-  const requestReverse = Status[2]
-  const requestReverse2 = Status[100]
-
-  console.log(requestReverse) // rejected
-  console.log(requestReverse2) // undefined
+  class Cat extends Animal {
+    public setVoice(voice: string): void {
+      this.voice = voice
+    }
+  }
+  const cat = new Cat('voice', 'black')
 
   return null
 }
